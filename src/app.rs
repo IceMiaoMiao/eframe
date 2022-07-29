@@ -14,7 +14,7 @@ impl Default for TemplateApp {
     fn default() -> Self {
         Self {
             // Example stuff:
-            label: "Hello World!".to_owned(),
+            label: "Hello! This is IceMiao".to_owned(),
             value: 2.7,
         }
     }
@@ -67,6 +67,7 @@ impl eframe::App for TemplateApp {
             ui.heading("Here is Left Side Panel");
 
             ui.horizontal(|ui| {
+
                 ui.label("Please input your name here: ");
                 ui.text_edit_singleline(label);
             });
@@ -107,6 +108,12 @@ impl eframe::App for TemplateApp {
                 "Click here to get Source code."
             ));
             egui::warn_if_debug_build(ui);
+        });
+        egui::SidePanel::right("right_panel").show(ctx,|ui|{
+            ui.heading("This is right side.");
+            ui.hyperlink_to("Click to get my responsibility.","https://github.com/IceMiaoMiao/eframe");
+
+
         });
 
         if false {
